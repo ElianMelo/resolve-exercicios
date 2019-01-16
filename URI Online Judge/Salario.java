@@ -1,6 +1,6 @@
 /*
 Nome do autor: Elian Melo Morais
-Data de criação do arquivo: 15/01/2019
+Data de criação do arquivo: 16/01/2019
 Objetivo sucinto do programa: Mostra o salário do funcionário
 Referência ao enunciado/origem do exercício: https://www.urionlinejudge.com.br/judge/pt/problems/view/1008
 */
@@ -11,30 +11,26 @@ import java.text.DecimalFormatSymbols;
 public class Salario {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		Scanner leitor = new Scanner(System.in);
 		
-	    DecimalFormat df = new DecimalFormat("#####0.00");
-	    DecimalFormatSymbols dfs = df.getDecimalFormatSymbols();
-
-	    dfs.setDecimalSeparator('.');
-	    df.setDecimalFormatSymbols(dfs);
+	    DecimalFormat formatador = new DecimalFormat("#####0.00");
+	    DecimalFormatSymbols simboloFormatador = formatador.getDecimalFormatSymbols();
+	    simboloFormatador.setDecimalSeparator('.');
+	    formatador.setDecimalFormatSymbols(simboloFormatador);
 		
 		int numero;
 		int horasTrabalhadas;
-		String strValorPorHora;
 		double valorPorHora;
 		double salario;
 		
-		numero = sc.nextInt();
-		horasTrabalhadas = sc.nextInt();
-		strValorPorHora = sc.next();
-		
-		valorPorHora = Double.parseDouble(strValorPorHora);
+		numero = leitor.nextInt();
+		horasTrabalhadas = leitor.nextInt();
+		valorPorHora = Double.parseDouble(leitor.next());
 		
 		salario = horasTrabalhadas * valorPorHora;
 		
 		System.out.println("NUMBER = " + numero);
-		System.out.println("SALARY = U$ " + df.format(salario));
+		System.out.println("SALARY = U$ " + formatador.format(salario));
 	}
 
 }
